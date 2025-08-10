@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Let’s Talk – FlowForge AI</title>
+  <meta name="description" content="Tell us about your business and your biggest challenge. We’ll show you how AI + automation can help." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --card: #11161d;
+      --text: #e9eef5;
+      --muted: #99a3ad;
+      --accent: #0ea5e9;
+      --accent-2: #22d3ee;
+      --error: #ef4444;
+      --ok: #22c55e;
+      --border: #1f2937;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1250px 650px at 80% -10%, rgba(34,211,238,.15), transparent 60%),
+                  radial-gradient(1000px 600px at -10% 0%, rgba(14,165,233,.2), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 48px 20px 80px;
+    }
+    header { text-align: center; margin-bottom: 28px; }
+    header h1 { margin: 0 0 8px; font-size: clamp(28px, 5vw, 40px); }
+    header p { margin: 0; color: var(--muted); }
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px;
+      max-width: 760px;
+      margin: 24px auto 0;
+      backdrop-filter: blur(6px);
+    }
+    form { display: grid; grid-template-columns: 1fr; gap: 14px; }
+    .row { display: grid; gap: 14px; }
+    @media (min-width: 720px) {
+      .row.two { grid-template-columns: 1fr 1fr; }
+      .row.three { grid-template-columns: 1fr 1fr 1fr; }
+    }
+    label { font-weight: 600; font-size: 14px; }
+    input, select, textarea {
+      width: 100%;
+      padding: 12px 14px;
+      background: #0d131a;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text);
+      outline: none;
+    }
+    input::placeholder, textarea::placeholder { color: #6b7280; }
+    textarea { min-height: 96px; resize: vertical; }
+    .actions { display: flex; align-items: center; gap: 12px; margin-top: 6px; }
+    button {
+      appearance: none;
+      border: none;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color: white;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .note { color: var(--muted); font-size: 12px; }
+    .hidden { display: none !important; }
+    .msg { font-size: 14px; padding: 10px 12px; border-radius: 10px; }
+    .msg.ok { background: rgba(34,197,94,.1); border: 1px solid rgba(34,197,94,.35); color: #a7f3d0; }
+    .msg.err { background: rgba(239,68,68,.1); border: 1px solid rgba(239,68,68,.35); color: #fecaca; }
+    footer { text-align: center; color: var(--muted); margin-top: 18px; font-size: 12px; }
+    .brand { font-weight: 700; letter-spacing: 0.2px; }
+    /* honeypot */
+    .hp { position: absolute; left: -999em; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Get a Free Automation Game Plan</h1>
+      <p>Tell us about your company and your biggest challenge. We’ll map a quick-win automation plan.</p>
+    </header>
+
+    <div class="card">
+      <form id="leadForm" novalidate>
+        <!-- Honeypot -->
+        <input class="hp" type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+
+        <div class="row two">
+          <div>
+            <label for="name">Name *</label>
+            <input id="name" name="name" type="text" placeholder="Jane Doe" required />
+          </div>
+          <div>
+            <label for="email">Email *</label>
+            <input id="email" name="email" type="email" placeholder="jane@company.com" required />
+          </div>
+        </div>
+
+        <div class="row two">
+          <div>
+            <label for="company">Company *</label>
+            <input id="company" name="company" type="text" placeholder="Acme Co." required />
+          </div>
+          <div>
+            <label for="role">Role *</label>
+            <input id="role" name="role" type="text" placeholder="Ops Manager" required />
+          </div>
+        </div>
+
+        <div class="row two">
+          <div>
+            <label for="company_size">Company Size *</label>
+            <select id="company_size" name="company_size" required>
+              <option value="">Select…</option>
+              <option>1–10</option>
+              <option>11–50</option>
+              <option>51–200</option>
+              <option>201–500</option>
+              <option>501–1000</option>
+              <option>1000+</option>
+            </select>
+          </div>
+          <div>
+            <label for="industry">Industry *</label>
+            <input id="industry" name="industry" type="text" placeholder="HVAC, Legal, E-commerce…" required />
+          </div>
+        </div>
+
+        <div>
+          <label for="primary_challenge">Primary Challenge *</label>
+          <textarea id="primary_challenge" name="primary_challenge" placeholder="Where do you feel the biggest drag or bottleneck?" required></textarea>
+        </div>
+
+        <!-- Tracking (auto-filled) -->
+        <input type="hidden" id="source" name="source" />
+        <input type="hidden" id="utm_source" name="utm_source" />
+        <input type="hidden" id="utm_medium" name="utm_medium" />
+        <input type="hidden" id="utm_campaign" name="utm_campaign" />
+        <input type="hidden" id="utm_term" name="utm_term" />
+        <input type="hidden" id="utm_content" name="utm_content" />
+        <input type="hidden" id="page_url" name="page_url" />
+        <input type="hidden" id="page_title" name="page_title" />
+
+        <div id="formMsg" class="msg hidden" role="status" aria-live="polite"></div>
+
+        <div class="actions">
+          <button id="submitBtn" type="submit">Get My Plan</button>
+          <span class="note">We’ll email a short plan. No spam.</span>
+        </div>
+      </form>
+    </div>
+
+    <footer>
+      <div><span class="brand">FlowForge AI</span> • © <span id="year"></span></div>
+      <div><a href="#" style="color:#9ca3af;text-decoration:underline;">Privacy</a> • <a href="#" style="color:#9ca3af;text-decoration:underline;">Terms</a></div>
+    </footer>
+  </div>
+
+  <script>
+    // ---- CONFIG ----
+    const WEBHOOK_URL = "https://fast-lime-falcon.twenty.com/webhooks/workflows/5ed0581d-e8d6-4db6-9895-b8ac2a98f236/81a5e5c2-bf97-46d6-812b-910da7087c8f"; // e.g., https://hook.eu1.make.com/abcd1234
+
+    // ---- Helpers ----
+    const $ = (id) => document.getElementById(id);
+    $("year").textContent = new Date().getFullYear();
+
+    // Fill tracking fields (UTM + page meta)
+    (function setTracking() {
+      const params = new URLSearchParams(window.location.search);
+      const utms = ["utm_source","utm_medium","utm_campaign","utm_term","utm_content"];
+      utms.forEach(key => { $(key).value = params.get(key) || ""; });
+      $("source").value = document.referrer ? new URL(document.referrer).hostname : "direct";
+      $("page_url").value = window.location.href;
+      $("page_title").value = document.title;
+    })();
+
+    function showMsg(type, text) {
+      const box = $("formMsg");
+      box.className = "msg " + (type === "ok" ? "ok" : "err");
+      box.textContent = text;
+      box.classList.remove("hidden");
+    }
+
+    function validate(form) {
+      const required = ["name","email","company","role","company_size","industry","primary_challenge"];
+      for (const k of required) {
+        const el = form.elements[k];
+        if (!el || !el.value || (el.tagName === "SELECT" && !el.value)) return false;
+      }
+      const email = form.elements["email"].value;
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    $("leadForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const form = e.currentTarget;
+
+      // Honeypot check
+      if (form.elements["website"].value) {
+        return; // silently drop bots
+      }
+
+      if (!validate(form)) {
+        showMsg("err", "Please complete all required fields with a valid email.");
+        return;
+      }
+
+      const btn = $("submitBtn");
+      btn.disabled = true; btn.textContent = "Submitting…";
+
+      // Build payload
+      const data = Object.fromEntries(new FormData(form).entries());
+      // If you need to match Twenty CRM field keys, map here:
+      // const payload = { full_name: data.name, email: data.email, ... };
+
+      try {
+        const res = await fetch(WEBHOOK_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            ...data,
+            submitted_at: new Date().toISOString(),
+            user_agent: navigator.userAgent
+          })
+        });
+
+        if (!res.ok) throw new Error("Non-200 response");
+
+        showMsg("ok", "Thanks! Check your inbox—your plan is on the way.");
+        form.reset();
+        // Optional redirect:
+        // setTimeout(() => window.location.href = "/thanks.html", 800);
+      } catch (err) {
+        console.error(err);
+        showMsg("err", "Something went wrong. Please try again in a moment.");
+      } finally {
+        btn.disabled = false; btn.textContent = "Get My Plan";
+      }
+    });
+  </script>
+</body>
+</html>
