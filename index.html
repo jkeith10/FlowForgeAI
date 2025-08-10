@@ -3,36 +3,66 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Let’s Talk – FlowForge AI</title>
-  <meta name="description" content="Tell us about your business and your biggest challenge. We’ll show you how AI + automation can help." />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <title>FlowForge AI – Forging the Future of Workflow Automation</title>
+  <meta name="description" content="Transform operations in 30 days or less. FlowForge AI helps mid-market companies eliminate 20+ hours of manual work weekly with intelligent automation." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{--bg:#0b0f14;--card:#11161d;--text:#e9eef5;--muted:#99a3ad;--accent:#0ea5e9;--accent-2:#22d3ee;--error:#ef4444;--ok:#22c55e;--border:#1f2937}
-    *{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(1250px 650px at 80% -10%,rgba(34,211,238,.15),transparent 60%),radial-gradient(1000px 600px at -10% 0%,rgba(14,165,233,.2),transparent 60%),var(--bg);color:var(--text);line-height:1.5}
-    .wrap{max-width:960px;margin:0 auto;padding:48px 20px 80px}header{text-align:center;margin-bottom:28px}header h1{margin:0 0 8px;font-size:clamp(28px,5vw,40px)}header p{margin:0;color:var(--muted)}
-    .card{background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,0));border:1px solid var(--border);border-radius:16px;padding:22px;max-width:760px;margin:24px auto 0;backdrop-filter:blur(6px)}
-    form{display:grid;grid-template-columns:1fr;gap:14px}.row{display:grid;gap:14px}
-    @media (min-width:720px){.row.two{grid-template-columns:1fr 1fr}}
+    :root{--bg:#0b0f14;--card:#11161d;--text:#e9eef5;--muted:#99a3ad;--accent:#0ea5e9;--accent2:#22d3ee;--border:#1f2937;--ok:#22c55e;--err:#ef4444}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:
+      radial-gradient(1250px 650px at 80% -10%,rgba(34,211,238,.15),transparent 60%),
+      radial-gradient(1000px 600px at -10% 0%,rgba(14,165,233,.2),transparent 60%),var(--bg); color:var(--text)}
+    a{color:var(--accent)} .wrap{max-width:1100px;margin:0 auto;padding:26px 18px 80px}
+    .section{margin:36px auto} .center{text-align:center} .muted{color:var(--muted)}
+    header.hero{margin-top:6px;text-align:center}
+    header.hero .pill{display:inline-block;border:1px solid var(--border);border-radius:999px;padding:6px 10px;font-size:12px;color:#b8c2cc}
+    header.hero h1{font-size:clamp(30px,5vw,46px);margin:.4em 0 .1em}
+    header.hero h2{font-size:clamp(18px,3vw,22px);font-weight:600;margin:.1em 0 .6em;color:#cfe7ff}
+    header.hero p{max-width:820px;margin:.5em auto 1em;color:var(--muted);font-size:clamp(15px,2.2vw,18px)}
+    .metrics{display:grid;gap:10px;grid-template-columns:1fr} @media(min-width:760px){.metrics{grid-template-columns:repeat(2,1fr)}}
+    .metric{background:linear-gradient(180deg,rgba(255,255,255,.02),transparent);border:1px solid var(--border);border-radius:12px;padding:10px 14px;font-size:14px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.02),transparent);border:1px solid var(--border);border-radius:16px;padding:18px}
+    .row{display:grid;gap:14px} @media(min-width:820px){.row.two{grid-template-columns:1fr 1fr}}
     label{font-weight:600;font-size:14px}
     input,select,textarea{width:100%;padding:12px 14px;background:#0d131a;border:1px solid var(--border);border-radius:10px;color:var(--text);outline:none}
-    input::placeholder,textarea::placeholder{color:#6b7280}textarea{min-height:96px;resize:vertical}
-    .actions{display:flex;align-items:center;gap:12px;margin-top:6px}
-    button{appearance:none;border:none;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;padding:12px 18px;border-radius:10px;font-weight:600;cursor:pointer}
-    .note{color:var(--muted);font-size:12px}.hidden{display:none!important}
-    .msg{font-size:14px;padding:10px 12px;border-radius:10px}
+    textarea{min-height:96px;resize:vertical} .note{color:var(--muted);font-size:12px}
+    .actions{display:flex;gap:12px;align-items:center;margin-top:6px;flex-wrap:wrap}
+    button{appearance:none;border:none;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;padding:12px 18px;border-radius:10px;font-weight:700;cursor:pointer}
+    .tag{display:inline-block;font-size:12px;color:#b8c2cc;border:1px solid var(--border);border-radius:999px;padding:6px 10px}
+    .hidden{display:none!important} .msg{font-size:14px;padding:10px 12px;border-radius:10px}
     .msg.ok{background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.35);color:#a7f3d0}
     .msg.err{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.35);color:#fecaca}
-    footer{text-align:center;color:var(--muted);margin-top:18px;font-size:12px}.brand{font-weight:700;letter-spacing:.2px}.hp{position:absolute;left:-999em}
+    .logos{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:12px}
+    .logo{height:50px;border:1px dashed #223042;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#6b7280}
+    .testimonial{font-style:italic;color:#dbeafe}
+    .hp{position:absolute;left:-999em}
+    footer{text-align:center;color:var(--muted);margin-top:22px;font-size:12px}
+    .brand{font-weight:700;letter-spacing:.2px}
   </style>
 </head>
 <body>
   <div class="wrap">
-    <header>
-      <h1>Get a Free Automation Game Plan</h1>
-      <p>Tell us about your company and your biggest challenge. We’ll map a quick-win plan.</p>
+
+    <!-- HERO / VALUE PROP (Above the form) -->
+    <header class="hero section">
+      <div class="pill">FlowForge AI</div>
+      <h1>Forging the Future of Workflow Automation</h1>
+      <h2>Transform Your Business Operations in 30 Days or Less</h2>
+      <p>We help mid-market companies eliminate <strong>20+ hours of manual work weekly</strong> through intelligent AI automation. No upfront costs, no long implementations — just immediate results.</p>
+      <div class="metrics">
+        <div class="metric">✓ <strong>95%</strong> of clients see ROI within 30 days</div>
+        <div class="metric">✓ Average time savings: <strong>22 hours/week per employee</strong></div>
+        <div class="metric">✓ <strong>Zero infrastructure</strong> investment required</div>
+        <div class="metric">✓ Implementation in <strong>14–30 days</strong></div>
+      </div>
     </header>
 
-    <div class="card">
+    <!-- LEAD FORM -->
+    <section id="form" class="section card">
+      <div class="center" style="margin-bottom:10px">
+        <span class="tag">Takes ~2 minutes</span>
+        <span class="tag">You’ll receive your custom plan within 24 hours</span>
+      </div>
+
       <form id="leadForm" novalidate>
         <!-- Honeypot -->
         <input class="hp" type="text" id="website" name="website" tabindex="-1" autocomplete="off"/>
@@ -55,7 +85,7 @@
           </div>
           <div>
             <label for="role">Role *</label>
-            <input id="role" name="role" type="text" placeholder="Ops Manager" required />
+            <input id="role" name="role" type="text" placeholder="Operations Director" required />
           </div>
         </div>
 
@@ -76,7 +106,7 @@
 
         <div>
           <label for="primary_challenge">Primary Challenge *</label>
-          <textarea id="primary_challenge" name="primary_challenge" placeholder="Where’s the biggest drag or bottleneck?" required></textarea>
+          <textarea id="primary_challenge" name="primary_challenge" placeholder="Where is the biggest drag or bottleneck?" required></textarea>
         </div>
 
         <!-- Tracking -->
@@ -89,17 +119,48 @@
         <input type="hidden" id="page_url" name="page_url" />
         <input type="hidden" id="page_title" name="page_title" />
 
-        <!-- Optional hint for your workflow (use if your Twenty flow branches on it) -->
-        <input type="hidden" id="object_type" name="object_type" value="lead" />
-
         <div id="formMsg" class="msg hidden" role="status" aria-live="polite"></div>
 
         <div class="actions">
-          <button id="submitBtn" type="submit">Get My Plan</button>
-          <span class="note">We’ll email a short plan. No spam.</span>
+          <button id="submitBtn" type="submit">Get My Free Automation Plan</button>
+          <span class="note">Your information is secure and never shared.</span>
         </div>
       </form>
-    </div>
+    </section>
+
+    <!-- SOCIAL PROOF (Below the form) -->
+    <section class="section">
+      <h3 class="center" style="margin:0 0 8px">Trusted by Growing Companies</h3>
+      <div class="logos">
+        <div class="logo">Client Logo</div>
+        <div class="logo">Client Logo</div>
+        <div class="logo">Client Logo</div>
+        <div class="logo">Client Logo</div>
+      </div>
+      <div class="card" style="margin-top:14px">
+        <p class="testimonial">“FlowForge AI helped us automate our entire lead qualification process. We’re saving 15 hours per week and closing 30% more deals.”</p>
+        <p class="muted">— Sarah Johnson, Operations Director, TechStart Solutions</p>
+      </div>
+    </section>
+
+    <!-- PROCESS PREVIEW -->
+    <section class="section card">
+      <h3>How It Works</h3>
+      <ol>
+        <li>Tell us your biggest operational challenge</li>
+        <li>Receive a custom automation game plan within 24 hours</li>
+        <li>Book a call to discuss implementation (optional)</li>
+        <li>See results in 30 days or less</li>
+      </ol>
+    </section>
+
+    <!-- FOUNDER / CREDIBILITY -->
+    <section class="section card" id="founder">
+      <h3>About Jared Keith</h3>
+      <p><strong>AI Automation Specialist & Business Operations Expert</strong></p>
+      <p>With <em>[X]</em> years of experience helping businesses streamline operations, Jared has personally implemented automation solutions that have saved companies over <em>[X]</em> hours and $<em>[X]</em> in operational costs.</p>
+      <p class="muted">[Add professional headshot] • <a href="https://www.linkedin.com/in/jaredkeith" rel="noopener" target="_blank">LinkedIn</a></p>
+    </section>
 
     <footer>
       <div><span class="brand">FlowForge AI</span> • © <span id="year"></span></div>
@@ -107,7 +168,9 @@
   </div>
 
   <script>
+    // ---- CONFIG ----
     const WEBHOOK_URL = "https://fast-lime-falcon.twenty.com/webhooks/workflows/5ed0581d-e8d6-4db6-9895-b8ac2a98f236/81a5e5c2-bf97-46d6-812b-910da7087c8f";
+
     const $ = (id) => document.getElementById(id);
     $("year").textContent = new Date().getFullYear();
 
@@ -115,11 +178,14 @@
     (function setTracking(){
       const params = new URLSearchParams(location.search);
       for (const k of ["utm_source","utm_medium","utm_campaign","utm_term","utm_content"]) {
-        $(k).value = params.get(k) || "";
+        const el = document.getElementById(k);
+        if (el) el.value = params.get(k) || "";
       }
-      $("source").value = document.referrer ? new URL(document.referrer).hostname : "direct";
-      $("page_url").value = location.href;
-      $("page_title").value = document.title;
+      const ref = document.referrer;
+      const src = ref ? (()=>{ try { return new URL(ref).hostname } catch(e){ return "direct"} })() : "direct";
+      document.getElementById("source").value = src;
+      document.getElementById("page_url").value = location.href;
+      document.getElementById("page_title").value = document.title;
     })();
 
     function showMsg(type, text){
@@ -138,7 +204,6 @@
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.elements.email.value);
     }
 
-    // Map to clean keys your workflow can use (tweak keys if your Twenty step expects specific names)
     function buildPayload(data){
       return {
         contact_name: data.name,
@@ -153,13 +218,12 @@
           utm_campaign: data.utm_campaign, utm_term: data.utm_term, utm_content: data.utm_content,
           page_url: data.page_url, page_title: data.page_title
         },
-        object_type: data.object_type || "lead",
         submitted_at: new Date().toISOString(),
         user_agent: navigator.userAgent
       };
     }
 
-    $("leadForm").addEventListener("submit", async (e)=>{
+    document.getElementById("leadForm").addEventListener("submit", async (e)=>{
       e.preventDefault();
       const form = e.currentTarget;
 
@@ -171,7 +235,7 @@
         return;
       }
 
-      const btn = $("submitBtn");
+      const btn = document.getElementById("submitBtn");
       btn.disabled = true; btn.textContent = "Submitting…";
 
       const data = Object.fromEntries(new FormData(form).entries());
@@ -181,24 +245,18 @@
         const res = await fetch(WEBHOOK_URL, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-          // If your Twenty webhook rejects CORS preflight, comment the headers above and send FormData instead.
+          body: JSON.stringify(payload)
         });
-
         if (!res.ok) throw new Error("Non-200");
-        showMsg("ok","Thanks! Check your inbox—your plan is on the way.");
-        form.reset();
+        // Redirect to thank-you with quick next steps
+        window.location.href = "thanks.html";
       } catch (err) {
         console.error(err);
         showMsg("err","Something went wrong. Please try again in a moment.");
-      } finally {
-        btn.disabled = false; btn.textContent = "Get My Plan";
+        btn.disabled = false; btn.textContent = "Get My Free Automation Plan";
       }
     });
   </script>
 </body>
 </html>
 
-  </script>
-</body>
-</html>
